@@ -3,7 +3,15 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    pos_batches = []
+    for item in recipe:
+        if item not in ingredients:
+            return 0
+        if ingredients[item] // recipe[item] >= 1:
+            pos_batches.append(ingredients[item] // recipe[item])
+        else:
+            return 0
+    return min(pos_batches)
 
 
 if __name__ == '__main__':
